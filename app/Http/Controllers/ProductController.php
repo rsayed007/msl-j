@@ -3,21 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductVariant;
-use App\Models\ProductVariantPrice;
 use App\Models\Variant;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Models\ProductVariant;
+use App\Services\MediaService;
+use App\Services\ProductService;
+use Illuminate\Support\Facades\DB;
+use App\Models\ProductVariantPrice;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
+    protected $productService;
+    protected $media;
+
+    public function __construct(
+        ProductService $productService,
+        MediaService $media
+
+    ) {
+        $this->productService = $productService;
+        $this->media = $media;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('products.index');
+        $variants = Variant::with('product_variant')->get();
+        $productData = $this->productService->getAllProduct($limit = 5, $request->all());
+
+        return view('products.index', compact('productData', 'variants'));
     }
 
     /**
@@ -37,9 +58,20 @@ class ProductController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
 
+        $data = $request->all();
+
+        if (!$this->productService->storeProduct($data)) {
+            return response()->json([
+                "status" => false,
+            ], Response::HTTP_CREATED);
+        }
+
+        return response()->json([
+            "status" => true,
+        ], Response::HTTP_CREATED);
     }
 
 
@@ -51,7 +83,6 @@ class ProductController extends Controller
      */
     public function show($product)
     {
-
     }
 
     /**

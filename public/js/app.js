@@ -2012,6 +2012,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2028,9 +2097,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      product_name: '',
-      product_sku: '',
-      description: '',
+      product_name: "",
+      product_sku: "",
+      description: "",
       images: [],
       product_variant: [{
         option: this.variants[0].id,
@@ -2038,7 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       product_variant_prices: [],
       dropzoneOptions: {
-        url: 'https://httpbin.org/post',
+        url: "https://httpbin.org/post",
         thumbnailWidth: 150,
         maxFilesize: 0.5,
         headers: {
@@ -2086,7 +2155,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     // combination algorithm
     getCombn: function getCombn(arr, pre) {
-      pre = pre || '';
+      pre = pre || "";
 
       if (!arr.length) {
         return pre;
@@ -2094,7 +2163,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       var ans = arr[0].reduce(function (ans, value) {
-        return ans.concat(self.getCombn(arr.slice(1), pre + value + '/'));
+        return ans.concat(self.getCombn(arr.slice(1), pre + value + "/"));
       }, []);
       return ans;
     },
@@ -2108,7 +2177,7 @@ __webpack_require__.r(__webpack_exports__);
         product_variant: this.product_variant,
         product_variant_prices: this.product_variant_prices
       };
-      axios.post('/product', product).then(function (response) {
+      axios.post("/product", product).then(function (response) {
         console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
@@ -2117,7 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -50688,7 +50757,11 @@ var render = function() {
                     staticClass: "btn btn-primary",
                     on: { click: _vm.newVariant }
                   },
-                  [_vm._v("Add another option")]
+                  [
+                    _vm._v(
+                      "\n                        Add another option\n                    "
+                    )
+                  ]
                 )
               ])
             : _vm._e(),
@@ -50781,7 +50854,7 @@ var render = function() {
         attrs: { type: "submit" },
         on: { click: _vm.saveProduct }
       },
-      [_vm._v("Save")]
+      [_vm._v("\n        Save\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -50821,7 +50894,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Variants")
+          _vm._v("\n                        Variants\n                    ")
         ])
       ]
     )
@@ -63300,8 +63373,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/rifat/Programming/mediusware/interview/interview-question-sr/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/rifat/Programming/mediusware/interview/interview-question-sr/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\roman\interview test\interview-question-sr\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\roman\interview test\interview-question-sr\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
